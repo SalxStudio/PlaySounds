@@ -26,8 +26,18 @@ class PlaySoundCommand : CommandExecutor, TabCompleter {
         label: String,
         args: Array<out String>
     ): Boolean {
+        if (!sender.hasPermission("salxplaysound.use")) {
+            sender.sendMessage(SalxPlaySounds.languageManager.getFormattedMessage("play_sound.no_permission"))
+            return true
+        }
+
         if (args.size < 2) {
-            sender.sendMessage("§c用法: /$label <声音> <玩家>")
+            val usageMessage = if (sender is Player) {
+                SalxPlaySounds.languageManager.getMessage("play_sound.player_usage")
+            } else {
+                SalxPlaySounds.languageManager.getMessage("play_sound.console_usage")
+            }
+            sender.sendMessage(SalxPlaySounds.languageManager.getPrefix() + usageMessage)
             return true
         }
 
@@ -40,18 +50,17 @@ class PlaySoundCommand : CommandExecutor, TabCompleter {
 
         val targetPlayer = Bukkit.getPlayerExact(playerName)
         if (targetPlayer == null) {
-            sender.sendMessage("§c玩家 $playerName 不在线")
+            sender.sendMessage(SalxPlaySounds.languageManager.getFormattedMessage("play_sound.player_not_found", "player" to playerName))
             return true
         }
 
         val isCustomSound = playSound(targetPlayer, soundName)
         if (!isCustomSound) {
-            sender.sendMessage("§c无效的声音: $soundName")
+            sender.sendMessage(SalxPlaySounds.languageManager.getFormattedMessage("play_sound.sound_not_found", "sound" to soundName))
             return true
         }
 
-        val senderName = if (sender is Player) sender.name else "控制台"
-        sender.sendMessage("§a[$senderName] 已为玩家 ${targetPlayer.name} 播放声音 $soundName")
+        sender.sendMessage(SalxPlaySounds.languageManager.getFormattedMessage("play_sound.success", "sound" to soundName, "player" to targetPlayer.name))
 
         return true
     }
@@ -59,11 +68,11 @@ class PlaySoundCommand : CommandExecutor, TabCompleter {
     private fun playSound(player: Player, soundName: String): Boolean {
         return try {
             val sound = Sound.valueOf(soundName.uppercase())
-            player.playSound(player.location, sound, 1.0f, 1.0f)
+            player.playSound(player.location, sound, SalxPlaySounds.soundVolume, SalxPlaySounds.soundPitch)
             true
         } catch (e: IllegalArgumentException) {
             try {
-                player.playSound(player.location, soundName, 1.0f, 1.0f)
+                player.playSound(player.location, soundName, SalxPlaySounds.soundVolume, SalxPlaySounds.soundPitch)
                 true
             } catch (ex: Exception) {
                 false

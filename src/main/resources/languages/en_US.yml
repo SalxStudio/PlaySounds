@@ -1,0 +1,30 @@
+prefix: "&7[&aSalxPlaySounds&7] "
+
+play_sound:
+  success: "&aSuccessfully played sound &e{sound} &ato player &e{player}"
+  player_not_found: "&cPlayer &e{player} &cdoes not exist or is not online"
+  sound_not_found: "&cSound &e{sound} &cdoes not exist"
+  no_permission: "&cYou do not have permission to use this command"
+  console_usage: "&cConsole usage: /salxplaysound <sound> <player>"
+  player_usage: "&cUsage: /salxplaysound <sound> <player>"
+
+stop_sound:
+  success: "&aSuccessfully stopped all sounds for player &e{player}"
+  player_not_found: "&cPlayer &e{player} &cdoes not exist or is not online"
+  no_permission: "&cYou do not have permission to use this command"
+  console_usage: "&cConsole usage: /salxstopsound <player>"
+  player_usage: "&cUsage: /salxstopsound <player>"
+
+reload:
+  success: "&aLanguage files reloaded!"
+  no_permission: "&cYou do not have permission to use this command"
+
+plugin:
+  enabled: "&aSalxPlaySounds enabled!"
+  disabled: "&aSalxPlaySounds disabled!"
+  papi_enabled: "&aPlaceholderAPI support enabled!"
+  nexo_enabled: "&aNexo support enabled! (Loaded &e{count} &acustom sounds)"
+  itemsadder_enabled: "&aItemsAdder support enabled! (Loaded &e{count} &acustom sounds)"
+  language_loaded: "&aLanguage file loaded: &e{language}"
+  language_not_found: "&cLanguage file &e{language} &cnot found, using default language"
+  language_default: "&aUsing default language: &e{language}"

@@ -26,8 +26,19 @@ commands:
     aliases:
       - sstop
       - sss
+  salxplaysoundreload:
+    description: 重载插件语言文件
+    usage: /salxplaysoundreload
+    permission: salxplaysound.admin
+    permission-message: §c你没有权限使用此命令
+    aliases:
+      - salxreload
+      - sreload
 
 permissions:
   salxplaysound.use:
     description: 允许使用salxplaysound命令
+    default: op
+  salxplaysound.admin:
+    description: 允许重载插件配置
     default: op

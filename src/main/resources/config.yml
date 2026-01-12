@@ -1,0 +1,29 @@
+# SalxPlaySounds 配置文件
+
+# 语言设置
+# 可选值: zh_CN (中文), en_US (英文)
+# 默认: zh_CN
+language: "zh_CN"
+
+# 启用PlaceholderAPI支持
+# 如果服务器安装了PlaceholderAPI插件，设置为true
+# 默认: true
+enable-papi: true
+
+# 启用Nexo自定义声音支持
+# 如果服务器安装了Nexo插件，设置为true
+# 默认: true
+enable-nexo: true
+
+# 启用ItemsAdder自定义声音支持
+# 如果服务器安装了ItemsAdder插件，设置为true
+# 默认: true
+enable-itemsadder: true
+
+# 声音播放音量 (0.0 - 1.0)
+# 默认: 1.0
+volume: 1.0
+
+# 声音播放音调 (0.5 - 2.0)
+# 默认: 1.0
+pitch: 1.0

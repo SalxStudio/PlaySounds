@@ -26,8 +26,18 @@ class StopSoundCommand : CommandExecutor, TabCompleter {
         label: String,
         args: Array<out String>
     ): Boolean {
+        if (!sender.hasPermission("salxplaysound.use")) {
+            sender.sendMessage(SalxPlaySounds.languageManager.getFormattedMessage("stop_sound.no_permission"))
+            return true
+        }
+
         if (args.isEmpty()) {
-            sender.sendMessage("§c用法: /$label <玩家>")
+            val usageMessage = if (sender is Player) {
+                SalxPlaySounds.languageManager.getMessage("stop_sound.player_usage")
+            } else {
+                SalxPlaySounds.languageManager.getMessage("stop_sound.console_usage")
+            }
+            sender.sendMessage(SalxPlaySounds.languageManager.getPrefix() + usageMessage)
             return true
         }
 
@@ -39,14 +49,13 @@ class StopSoundCommand : CommandExecutor, TabCompleter {
 
         val targetPlayer = Bukkit.getPlayerExact(playerName)
         if (targetPlayer == null) {
-            sender.sendMessage("§c玩家 $playerName 不在线")
+            sender.sendMessage(SalxPlaySounds.languageManager.getFormattedMessage("stop_sound.player_not_found", "player" to playerName))
             return true
         }
 
         stopSound(targetPlayer)
 
-        val senderName = if (sender is Player) sender.name else "控制台"
-        sender.sendMessage("§a[$senderName] 已停止玩家 ${targetPlayer.name} 的声音")
+        sender.sendMessage(SalxPlaySounds.languageManager.getFormattedMessage("stop_sound.success", "player" to targetPlayer.name))
 
         return true
     }

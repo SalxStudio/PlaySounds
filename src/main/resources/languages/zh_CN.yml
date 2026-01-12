@@ -1,0 +1,30 @@
+prefix: "&7[&aSalxPlaySounds&7] "
+
+play_sound:
+  success: "&a已成功播放声音 &e{sound} &a给玩家 &e{player}"
+  player_not_found: "&c玩家 &e{player} &c不存在或不在线"
+  sound_not_found: "&c声音 &e{sound} &c不存在"
+  no_permission: "&c你没有权限使用此命令"
+  console_usage: "&c控制台使用: /salxplaysound <sound> <player>"
+  player_usage: "&c用法: /salxplaysound <sound> <player>"
+
+stop_sound:
+  success: "&a已成功停止玩家 &e{player} &a的所有声音"
+  player_not_found: "&c玩家 &e{player} &c不存在或不在线"
+  no_permission: "&c你没有权限使用此命令"
+  console_usage: "&c控制台使用: /salxstopsound <player>"
+  player_usage: "&c用法: /salxstopsound <player>"
+
+reload:
+  success: "&a语言文件已重载!"
+  no_permission: "&c你没有权限使用此命令"
+
+plugin:
+  enabled: "&aSalxPlaySounds 已启用!"
+  disabled: "&aSalxPlaySounds 已卸载!"
+  papi_enabled: "&a已启用 PlaceholderAPI 支持!"
+  nexo_enabled: "&a已启用 Nexo 支持! (已加载 &e{count} &a个自定义声音)"
+  itemsadder_enabled: "&a已启用 ItemsAdder 支持! (已加载 &e{count} &a个自定义声音)"
+  language_loaded: "&a已加载语言文件: &e{language}"
+  language_not_found: "&c语言文件 &e{language} &c不存在，使用默认语言"
+  language_default: "&a使用默认语言: &e{language}"
