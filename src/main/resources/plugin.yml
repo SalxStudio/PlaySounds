@@ -1,0 +1,33 @@
+name: SalxPlaySounds
+version: ${version}
+main: com.salx.playsound.SalxPlaySounds
+api-version: 1.20
+author: Salx
+description: 精准控制原版playsound命令，支持PAPI占位符，支持Nexo和ItemsAdder自定义声音，支持Minecraft 1.20-1.21+
+softdepend:
+  - PlaceholderAPI
+  - Nexo
+  - ItemsAdder
+
+commands:
+  salxplaysound:
+    description: 播放声音给指定玩家
+    usage: /salxplaysound <sound> <player>
+    permission: salxplaysound.use
+    permission-message: §c你没有权限使用此命令
+    aliases:
+      - splay
+      - sps
+  salxstopsound:
+    description: 停止播放指定玩家的声音
+    usage: /salxstopsound <player>
+    permission: salxplaysound.use
+    permission-message: §c你没有权限使用此命令
+    aliases:
+      - sstop
+      - sss
+
+permissions:
+  salxplaysound.use:
+    description: 允许使用salxplaysound命令
+    default: op
